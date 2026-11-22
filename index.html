@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#100b0c">
+<title>A Little Something ❤️</title>
+<style>
+:root{
+  --burgundy:#5b1725;--deep-red:#7d2637;--soft-red:#b84a5d;
+  --cream:#f8ead5;--gold:#c8a66a;--black:#080607;
+  --glass:rgba(255,255,255,.075);--border:rgba(255,255,255,.15);
+  --text:#f8eee4;--muted:rgba(248,238,228,.68);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--black)}
+body{min-height:100%;background:radial-gradient(circle at 15% 20%,rgba(125,38,55,.22),transparent 30%),radial-gradient(circle at 85% 70%,rgba(200,166,106,.09),transparent 28%),#080607;color:var(--text);font-family:Georgia,"Times New Roman",serif;overflow-x:hidden}
+.intro{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:70px 6vw;overflow:hidden}
+.intro-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(8,6,7,.96),rgba(54,12,24,.75)),radial-gradient(circle at 50% 50%,rgba(184,74,93,.12),transparent 50%);z-index:-3}
+.light{position:absolute;width:35vw;height:35vw;max-width:500px;max-height:500px;border-radius:50%;filter:blur(100px);opacity:.18;animation:drift 12s ease-in-out infinite alternate;z-index:-2}
+.light.one{background:#9c3148;top:-15%;left:-10%}.light.two{background:#c8a66a;right:-12%;bottom:-20%;animation-delay:-5s}
+@keyframes drift{from{transform:translate3d(-20px,-10px,0) scale(1)}to{transform:translate3d(25px,20px,0) scale(1.12)}}
+.intro-content{width:min(1200px,100%);display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(35px,6vw,90px);align-items:center}
+.intro-copy{animation:fadeUp 1.2s ease both}.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--gold);font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;margin-bottom:20px}.eyebrow:before{content:"";width:32px;height:1px;background:var(--gold)}
+.intro h1{max-width:700px;font-size:clamp(2.8rem,6vw,6rem);line-height:.98;font-weight:400;letter-spacing:-.035em}.intro h1 em{color:var(--cream);font-style:italic}
+.subtitle{margin-top:28px;color:var(--muted);font-family:Arial,sans-serif;font-size:clamp(.9rem,1.5vw,1.05rem);letter-spacing:.05em}
+.intro-album{position:relative;width:min(560px,100%);aspect-ratio:4/5;justify-self:center;animation:fadeUp 1.2s .18s ease both}.album-shadow{position:absolute;inset:7% -5% -5% 5%;background:#000;filter:blur(35px);opacity:.7;border-radius:20px}.album{position:absolute;inset:0;overflow:hidden;border:1px solid var(--border);border-radius:18px;background:#171012;box-shadow:0 35px 80px rgba(0,0,0,.6),inset 0 0 0 1px rgba(255,255,255,.04);transform:rotate(-2deg);transition:transform .5s ease}.album:hover{transform:rotate(0deg) translateY(-6px)}.album img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.82) contrast(1.04)}.album:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.72),transparent 50%),linear-gradient(120deg,rgba(255,255,255,.08),transparent 35%)}.album-label{position:absolute;z-index:2;left:28px;right:28px;bottom:28px;display:flex;justify-content:space-between;align-items:end}.album-label strong{font-size:clamp(1.2rem,2vw,1.7rem);font-weight:400}.album-label span{color:var(--gold);font-family:Arial,sans-serif;font-size:.7rem;letter-spacing:.18em}
+.scroll-hint{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.48);font-family:Arial,sans-serif;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase}.scroll-line{width:1px;height:38px;background:linear-gradient(var(--gold),transparent);animation:scrollPulse 2s infinite}@keyframes scrollPulse{0%,100%{opacity:.35;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+.photo-section{position:relative;width:100%;min-height:100svh;height:100svh;overflow:hidden;display:flex;align-items:flex-end;padding:clamp(30px,7vw,100px);isolation:isolate}.photo-section img{position:absolute;inset:-4%;width:108%;height:108%;object-fit:cover;z-index:-3;filter:saturate(.78) contrast(1.08);transform:scale(1.03);transition:transform 1.5s cubic-bezier(.2,.7,.2,1);will-change:transform}.photo-section.visible img{transform:scale(1.08)}.photo-overlay{position:absolute;inset:0;z-index:-2;background:linear-gradient(to top,rgba(4,3,4,.9),rgba(4,3,4,.34) 48%,rgba(4,3,4,.16)),linear-gradient(90deg,rgba(4,3,4,.25),transparent 60%)}.photo-number{position:absolute;top:35px;right:5vw;color:rgba(255,255,255,.55);font-family:Arial,sans-serif;font-size:.65rem;letter-spacing:.22em}.caption{max-width:620px;opacity:0;transform:translateY(35px);transition:opacity 1s ease,transform 1s ease}.visible .caption{opacity:1;transform:translateY(0)}.caption .line{width:40px;height:1px;background:var(--gold);margin-bottom:20px}.caption p{font-size:clamp(1.4rem,3vw,2.7rem);line-height:1.15;font-weight:400}.caption small{display:block;margin-top:18px;color:var(--muted);font-family:Arial,sans-serif;font-size:.7rem;letter-spacing:.13em;text-transform:uppercase}
+.special-section{align-items:center;justify-content:center;padding:30px;perspective:1600px}.flip-card{width:min(850px,92vw);height:min(82svh,720px);position:relative;transform-style:preserve-3d;cursor:pointer;transition:transform 1.15s cubic-bezier(.2,.7,.15,1);outline:none}.flip-card.flipped{transform:rotateY(180deg)}.flip-face{position:absolute;inset:0;border-radius:22px;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1px solid rgba(255,255,255,.2);box-shadow:0 40px 100px rgba(0,0,0,.6)}.flip-front{background:#111}.flip-front img{width:100%;height:100%;object-fit:cover;filter:saturate(.78) contrast(1.08)}.flip-front:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8),transparent 55%),linear-gradient(120deg,rgba(255,255,255,.08),transparent 30%)}.tap-hint{position:absolute;z-index:4;bottom:30px;left:50%;transform:translateX(-50%);white-space:nowrap;padding:12px 20px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(0,0,0,.25);backdrop-filter:blur(10px);color:rgba(255,255,255,.85);font-family:Arial,sans-serif;font-size:.72rem;letter-spacing:.08em;animation:hintPulse 2.5s ease-in-out infinite}@keyframes hintPulse{0%,100%{opacity:.55;transform:translateX(-50%) translateY(0)}50%{opacity:1;transform:translateX(-50%) translateY(-4px)}}
+.flip-back{transform:rotateY(180deg);display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 35%,rgba(200,166,106,.16),transparent 40%),linear-gradient(145deg,#38131e,#13090d 70%)}
+.heart-wrap{width:min(480px,76vw);aspect-ratio:1;position:relative;display:flex;align-items:center;justify-content:center;animation:heartFloat 5s ease-in-out infinite}@keyframes heartFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+/* Visual heart setup with precise spring-back transition timing */
+.heart-glow{position:absolute;inset:15%;background:rgba(184,74,93,.35);filter:blur(55px);border-radius:50%;transform:scale(1);opacity:.4;transition:transform .12s cubic-bezier(0,.8,.3,1),opacity .12s ease;will-change:transform,opacity}
+.heart{position:relative;width:67%;height:67%;background:linear-gradient(145deg,rgba(255,255,255,.12),transparent 32%),linear-gradient(145deg,#8d3045,#4b1220 70%);transform:rotate(-45deg) scale(1);border-radius:12px;box-shadow:0 25px 60px rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,255,255,.15);transition:transform .12s cubic-bezier(0,.8,.3,1);will-change:transform}
+.heart:before,.heart:after{content:"";position:absolute;width:100%;height:100%;border-radius:50%;background:inherit}
+.heart:before{top:-50%;left:0}.heart:after{left:50%;top:0}
+
+/* Active synchronized beat states */
+.heart.beat-1{transform:rotate(-45deg) scale(1.085);filter:brightness(1.15)}
+.heart-glow.beat-1{transform:scale(1.22);opacity:.8}
+.heart.beat-2{transform:rotate(-45deg) scale(1.12);filter:brightness(1.22)}
+.heart-glow.beat-2{transform:scale(1.32);opacity:1}
+
+.heart-content{position:absolute;z-index:3;text-align:center;width:70%;transform:rotate(45deg);pointer-events:none}
+.heart-content span{display:block;color:rgba(255,255,255,.65);font-family:Arial,sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px}
+.heart-content strong{font-size:clamp(1.2rem,3vw,2rem);font-weight:400}
+.heart-open-label{position:absolute;z-index:5;bottom:-15px;left:50%;transform:translateX(-50%);white-space:nowrap;padding:10px 18px;border:1px solid rgba(255,255,255,.15);border-radius:999px;background:rgba(0,0,0,.28);color:rgba(255,255,255,.7);font-family:Arial,sans-serif;font-size:.67rem;letter-spacing:.08em}
+.letter-reveal{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:25px;background:rgba(5,3,4,.88);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .8s ease,visibility .8s ease}
+.letter-reveal.open{opacity:1;visibility:visible;pointer-events:auto}
+.letter-paper{width:min(720px,94vw);max-height:88svh;overflow-y:auto;position:relative;padding:clamp(30px,6vw,65px);border-radius:12px;color:#322326;background:radial-gradient(circle at 20% 10%,rgba(255,255,255,.8),transparent 30%),linear-gradient(135deg,#f6e7ce,#ead3b3);box-shadow:0 40px 100px rgba(0,0,0,.6),inset 0 0 40px rgba(105,64,40,.08);transform:translateY(50px) scale(.92) rotate(-1deg);transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.letter-reveal.open .letter-paper{transform:translateY(0) scale(1) rotate(0)}
+.paper-corner{position:absolute;top:0;right:0;width:75px;height:75px;background:linear-gradient(135deg,#d7b991 50%,transparent 51%);opacity:.5}
+.letter-paper .small-label{font-family:Arial,sans-serif;font-size:.63rem;letter-spacing:.18em;text-transform:uppercase;color:#87685c;margin-bottom:24px}
+.letter-paper h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:400;font-style:italic;line-height:1;margin-bottom:30px}
+.letter-text{white-space:pre-line;font-size:clamp(1rem,1.8vw,1.18rem);line-height:1.9}
+.signature{margin-top:35px;font-size:1.4rem;font-style:italic}
+.final-message{margin-top:35px;padding-top:22px;border-top:1px solid rgba(70,40,40,.18);font-family:Arial,sans-serif;font-size:.72rem;letter-spacing:.1em;color:#80615a;opacity:0;transform:translateY(10px)}
+.letter-reveal.open .final-message{animation:finalFade 1.2s 1s forwards}@keyframes finalFade{to{opacity:1;transform:translateY(0)}}
+.close-letter{position:absolute;top:18px;right:18px;width:38px;height:38px;border:1px solid rgba(70,40,40,.2);border-radius:50%;background:transparent;color:#4d3332;cursor:pointer;font-size:1.2rem}
+.audio-control{position:fixed;right:20px;bottom:20px;z-index:110;width:42px;height:42px;border:1px solid rgba(255,255,255,.18);border-radius:50%;background:rgba(10,7,8,.55);backdrop-filter:blur(12px);color:white;cursor:pointer;display:none;align-items:center;justify-content:center;font-size:.85rem}.audio-control.visible{display:flex}
+.particles{position:fixed;inset:0;pointer-events:none;z-index:20;overflow:hidden}.particle{position:absolute;bottom:-20px;width:3px;height:3px;border-radius:50%;background:rgba(248,234,213,.5);animation:rise linear infinite}.particle.heart-particle{width:auto;height:auto;background:none;color:rgba(184,74,93,.35);font-size:11px}@keyframes rise{from{transform:translateY(0) translateX(0);opacity:0}15%{opacity:.8}85%{opacity:.35}to{transform:translateY(-110vh) translateX(40px);opacity:0}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:900px){.intro{padding:80px 6vw}.intro-content{grid-template-columns:1fr;max-width:650px}.intro-copy{text-align:center}.eyebrow{justify-content:center}.intro h1{margin-inline:auto}.intro-album{width:min(460px,85vw)}.letter-box{text-align:center}}
+@media(max-width:600px){.intro{padding:55px 20px}.intro-content{gap:30px}.intro h1{font-size:clamp(2.45rem,12vw,4rem)}.subtitle{margin-top:18px;font-size:.8rem}.intro-album{width:min(380px,86vw)}.scroll-hint{bottom:12px}.photo-section{padding:25px 20px}.caption p{font-size:clamp(1.45rem,7vw,2.2rem)}.photo-number{top:22px;right:20px}.flip-card{width:92vw;height:76svh}.heart-wrap{width:88vw;max-width:390px}.letter-paper{padding:35px 25px;max-height:86svh}.letter-paper h2{font-size:2.3rem}.letter-text{font-size:.96rem;line-height:1.75}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.caption{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<script>
+const CONFIG = {
+  herName: "Hello Rwitika my beloved Sister 😣",
+  yourName: "SUMITRO",
+  photo1: "https://raw.githubusercontent.com/sumitro7/cuitepie/main/WhatsApp%20Image%202026-11-22%20at%2003.00.41%20(2).jpeg",
+  photo2: "https://raw.githubusercontent.com/sumitro7/cuitepie/main/WhatsApp%20Image%202026-11-21%20at%2020.20.56.jpeg",
+  photo3: "https://raw.githubusercontent.com/sumitro7/cuitepie/main/IMG-20240831-WA0010.jpg",
+  photo4: "https://raw.githubusercontent.com/sumitro7/cuitepie/main/IMG-20240821-WA0017.jpg",
+  photo5: "https://raw.githubusercontent.com/sumitro7/cuitepie/main/IMG_20240308_214613.jpg",
+
+  captions: [
+    " UFF how much preety you are 🥰.",
+    "Some people just slowly become important.",
+    "And you become special to me.",
+    "This pic is fav of mine, I like it a lot.",
+  ],
+
+  letter: `I don't know how exactly you become 5pecial to me.     
+
+And idk how you become being a part of my life but im happy beacuse i have some one like you.
+it's all right sometimes you become like someone who dont recognize who am i for you but ok 🥹
+Maybe i'm just a character of your life.
+
+And that's okay.
+
+
+I just wanted you to know that somewhere along the way, you became someone special to me.
+
+and why idk i wish you at 3:10 when once you told me about birth time 🙂.
+Thanks for being a friend, being a sister and thanks to give sister love, being a classsmate of mine.
+thanks for everything.
+
+and once again Happy Birthday Rwitika!`,
+
+  /* Precise Heartbeat Timing Config */
+  heartbeat: {
+    enabled: true,
+    volume: 0.35,      // Audible soft bass
+    cycleDuration: 1.4, // Seconds per complete lub-dub cycle (~85 BPM)
+    lubTime: 0.0,       // Lub starts at t=0
+    dubTime: 0.28       // Dub starts at t=280ms
+  }
+};
+</script>
+
+<div class="particles" id="particles"></div>
+
+<section class="intro">
+  <div class="intro-bg"></div><div class="light one"></div><div class="light two"></div>
+  <div class="intro-content">
+    <div class="intro-copy">
+      <div class="eyebrow">A little story</div>
+      <h1>Some things are easier <em>to show than say…</em></h1>
+      <p class="subtitle">So I made you a little something.</p>
+    </div>
+    <div class="intro-album">
+      <div class="album-shadow"></div>
+      <div class="album">
+        <img id="introPhoto" src="https://raw.githubusercontent.com/sumitro7/cuitepie/main/WhatsApp%20Image%202026-11-22%20at%2003.00.41%20(2).jpeg" alt="A special memory" loading="eager">
+        <div class="album-label"><strong>For you, <span id="herNameIntro">Her Name</span></strong><span>01 / 05</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint"><span>Scroll slowly</span><div class="scroll-line"></div></div>
+</section>
+
+<section class="photo-section story-section">
+  <img src="https://raw.githubusercontent.com/sumitro7/cuitepie/main/WhatsApp%20Image%202026-11-21%20at%2020.20.56.jpeg" alt="Memory photograph" loading="lazy">
+  <div class="photo-overlay"></div><div class="photo-number">01 / 05</div>
+  <div class="caption"><div class="line"></div><p id="caption1"></p><small>A little moment</small></div>
+</section>
+
+<section class="photo-section story-section">
+  <img src="https://raw.githubusercontent.com/sumitro7/cuitepie/main/WhatsApp%20Image%202026-11-22%20at%2003.01.43.jpeg" alt="Memory photograph" loading="lazy">
+  <div class="photo-overlay"></div><div class="photo-number">02 / 05</div>
+  <div class="caption"><div class="line"></div><p id="caption2"></p><small>Somewhere along the way</small></div>
+</section>
+
+<section class="photo-section story-section">
+  <img src="https://raw.githubusercontent.com/sumitro7/cuitepie/main/WhatsApp%20Image%202026-11-22%20at%2002.55.23.jpeg" alt="Memory photograph" loading="lazy">
+  <div class="photo-overlay"></div><div class="photo-number">03 / 05</div>
+  <div class="caption"><div class="line"></div><p id="caption3"></p><small>A different feeling</small></div>
+</section>
+
+<section class="photo-section story-section">
+  <img src="https://raw.githubusercontent.com/sumitro7/cuitepie/main/WhatsApp%20Image%202026-11-22%20at%2002.56.58.jpeg" alt="Memory photograph" loading="lazy">
+  <div class="photo-overlay"></div><div class="photo-number">04 / 05</div>
+  <div class="caption"><div class="line"></div><p id="caption4"></p><small>Almost there</small></div>
+</section>
+
+<section class="photo-section special-section">
+  <div class="flip-card" id="flipCard" role="button" tabindex="0" aria-label="Open the fifth photo" aria-pressed="false">
+    <div class="flip-face flip-front">
+      <img src= "https://raw.githubusercontent.com/sumitro7/cuitepie/main/WhatsApp%20Image%202026-11-22%20at%2003.00.41.jpeg" alt="The special photograph" loading="eager">
+      <div class="tap-hint">Tap here to next ✨</div>
+    </div>
+    <div class="flip-face flip-back">
+      <div class="heart-wrap" id="heartWrap" role="button" tabindex="0" aria-label="Open the letter">
+        <div class="heart-glow" id="heartGlow"></div>
+        <div class="heart" id="heart"></div>
+        <div class="heart-content"><span>A little something</span><strong>For you</strong></div>
+        <div class="heart-open-label">Tap the heart</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<button class="audio-control" id="audioControl" type="button" aria-label="Mute heartbeat" title="Mute heartbeat">♫</button>
+
+<div class="letter-reveal" id="letterReveal" aria-hidden="true">
+  <div class="letter-paper">
+    <div class="paper-corner"></div>
+    <button class="close-letter" id="closeLetter" type="button" aria-label="Close letter">×</button>
+    <div class="small-label">A letter I wanted you to read</div>
+    <h2>Dear <span id="herNameLetter">Her Name</span>,</h2>
+    <div class="letter-text" id="letterText"></div>
+    <div class="signature">— <span id="yourName">Your Name</span></div>
+    <div class="final-message">No pressure. No hurry. Just honesty.</div>
+  </div>
+</div>
+
+<script>
+/* Populate data */
+document.getElementById("herNameIntro").textContent = CONFIG.herName;
+document.getElementById("herNameLetter").textContent = CONFIG.herName;
+document.getElementById("yourName").textContent = CONFIG.yourName;
+document.getElementById("introPhoto").src = CONFIG.photo1;
+document.getElementById("caption1").textContent = CONFIG.captions[0];
+document.getElementById("caption2").textContent = CONFIG.captions[1];
+document.getElementById("caption3").textContent = CONFIG.captions[2];
+document.getElementById("caption4").textContent = CONFIG.captions[3];
+document.getElementById("letterText").textContent = CONFIG.letter;
+
+/* Ambient Particles */
+const particleContainer = document.getElementById("particles");
+for (let i = 0; i < (innerWidth < 600 ? 16 : 28); i++) {
+  const p = document.createElement("span");
+  const heartParticle = Math.random() > 0.72;
+  p.className = heartParticle ? "particle heart-particle" : "particle";
+  if (heartParticle) p.textContent = "♡";
+  p.style.left = Math.random() * 100 + "%";
+  p.style.animationDuration = (8 + Math.random() * 14) + "s";
+  p.style.animationDelay = (-Math.random() * 15) + "s";
+  p.style.opacity = 0.2 + Math.random() * 0.5;
+  particleContainer.appendChild(p);
+}
+
+/* Photo Visibility Observer */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
+}, { threshold: 0.25 });
+document.querySelectorAll(".story-section").forEach(s => observer.observe(s));
+
+/* =========================================================
+   SYNCHRONIZED WEB AUDIO + VISUAL ENGINE
+   A lookahead audio scheduler matches the exact visual beat
+   to the sub-millisecond audio envelope.
+   ========================================================= */
+let audioCtx = null;
+let masterGain = null;
+let isMuted = false;
+let sequenceActive = false;
+
+const heartEl = document.getElementById("heart");
+const glowEl = document.getElementById("heartGlow");
+
+function initAudio() {
+  if (audioCtx) return;
+  const AC = window.AudioContext || window.webkitAudioContext;
+  audioCtx = new AC();
+  masterGain = audioCtx.createGain();
+  masterGain.gain.setValueAtTime(CONFIG.heartbeat.volume, audioCtx.currentTime);
+  masterGain.connect(audioCtx.destination);
+}
+
+/* Natural acoustic thump generation */
+function synthesizeThump(time, startFreq, endFreq, peakGain, duration) {
+  if (!audioCtx) return;
+
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  const filter = audioCtx.createBiquadFilter();
+
+  osc.type = "sine";
+  osc.frequency.setValueAtTime(startFreq, time);
+  osc.frequency.exponentialRampToValueAtTime(endFreq, time + duration);
+
+  filter.type = "lowpass";
+  filter.frequency.setValueAtTime(140, time);
+  filter.frequency.exponentialRampToValueAtTime(45, time + duration);
+
+  gain.gain.setValueAtTime(0.0001, time);
+  gain.gain.exponentialRampToValueAtTime(peakGain, time + 0.018);
+  gain.gain.exponentialRampToValueAtTime(0.0001, time + duration);
+
+  osc.connect(filter);
+  filter.connect(gain);
+  gain.connect(masterGain);
+
+  osc.start(time);
+  osc.stop(time + duration + 0.05);
+}
+
+/* Scheduler parameters */
+let nextBeatTime = 0;
+let beatQueue = [];
+
+function triggerVisualBeat(type) {
+  if (type === 1) {
+    heartEl.classList.add("beat-1");
+    glowEl.classList.add("beat-1");
+    if ("vibrate" in navigator) navigator.vibrate(30);
+    setTimeout(() => {
+      heartEl.classList.remove("beat-1");
+      glowEl.classList.remove("beat-1");
+    }, 140);
+  } else if (type === 2) {
+    heartEl.classList.add("beat-2");
+    glowEl.classList.add("beat-2");
+    if ("vibrate" in navigator) navigator.vibrate(45);
+    setTimeout(() => {
+      heartEl.classList.remove("beat-2");
+      glowEl.classList.remove("beat-2");
+    }, 160);
+  }
+}
+
+function scheduleCycle(cycleStart) {
+  const lub = cycleStart + CONFIG.heartbeat.lubTime;
+  const dub = cycleStart + CONFIG.heartbeat.dubTime;
+
+  // Schedule Audio Waves
+  synthesizeThump(lub, 64, 38, 0.95, 0.18);
+  synthesizeThump(dub, 54, 34, 0.70, 0.22);
+
+  // Queue matching visual events for exact playback
+  beatQueue.push({ time: lub, type: 1 });
+  beatQueue.push({ time: dub, type: 2 });
+}
+
+/* Unified Animation Frame Loop */
+function engineTick() {
+  if (!sequenceActive) return;
+
+  const curTime = audioCtx.currentTime;
+
+  // 1. Audio lookahead scheduling (500ms horizon)
+  while (nextBeatTime < curTime + 0.5) {
+    scheduleCycle(nextBeatTime);
+    nextBeatTime += CONFIG.heartbeat.cycleDuration;
+  }
+
+  // 2. Exact visual synchronization
+  while (beatQueue.length > 0 && beatQueue[0].time <= curTime) {
+    const beat = beatQueue.shift();
+    triggerVisualBeat(beat.type);
+  }
+
+  requestAnimationFrame(engineTick);
+}
+
+function startHeartbeatEngine() {
+  if (!CONFIG.heartbeat.enabled || sequenceActive) return;
+  initAudio();
+  if (audioCtx.state === "suspended") audioCtx.resume();
+
+  sequenceActive = true;
+  nextBeatTime = audioCtx.currentTime + 0.1;
+  document.getElementById("audioControl").classList.add("visible");
+
+  requestAnimationFrame(engineTick);
+}
+
+/* Flip Interaction Trigger */
+const flipCard = document.getElementById("flipCard");
+function triggerFlip() {
+  if (flipCard.classList.contains("flipped")) return;
+  flipCard.classList.add("flipped");
+  flipCard.setAttribute("aria-pressed", "true");
+  startHeartbeatEngine();
+}
+
+flipCard.addEventListener("click", e => {
+  if (e.target.closest("#heartWrap")) return;
+  triggerFlip();
+});
+
+flipCard.addEventListener("keydown", e => {
+  if (e.key === "Enter" || e.key === " ") {
+    e.preventDefault();
+    triggerFlip();
+  }
+});
+
+/* Letter Modal */
+const letterReveal = document.getElementById("letterReveal");
+const heartWrap = document.getElementById("heartWrap");
+
+function openLetter() {
+  letterReveal.classList.add("open");
+  letterReveal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
+
+heartWrap.addEventListener("click", e => { e.stopPropagation(); openLetter(); });
+heartWrap.addEventListener("keydown", e => {
+  if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openLetter(); }
+});
+
+function closeLetterModal() {
+  letterReveal.classList.remove("open");
+  letterReveal.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+}
+document.getElementById("closeLetter").addEventListener("click", closeLetterModal);
+letterReveal.addEventListener("click", e => { if (e.target === letterReveal) closeLetterModal(); });
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && letterReveal.classList.contains("open")) closeLetterModal();
+});
+
+/* Mute Control */
+const audioControl = document.getElementById("audioControl");
+audioControl.addEventListener("click", async () => {
+  isMuted = !isMuted;
+  if (audioCtx && audioCtx.state === "suspended") await audioCtx.resume();
+  if (masterGain) {
+    masterGain.gain.setTargetAtTime(
+      isMuted ? 0 : CONFIG.heartbeat.volume,
+      audioCtx.currentTime,
+      0.03
+    );
+  }
+  audioControl.textContent = isMuted ? "×" : "♫";
+  audioControl.setAttribute("aria-label", isMuted ? "Unmute heartbeat" : "Mute heartbeat");
+});
+
+/* Page visibility management */
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    if (audioCtx && audioCtx.state === "running") audioCtx.suspend();
+  } else if (sequenceActive && audioCtx) {
+    audioCtx.resume();
+  }
+});
+</script>
+</body>
+</html>
